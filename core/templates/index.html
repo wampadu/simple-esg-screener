@@ -9,7 +9,7 @@
 <div class="col-12">
     <form>
         <div class="mb-3">
-          <label for="company_ticker" class="form-label">Company or Ticker</label>
+          <label for="company_ticker" class="form-label">Company or Ticker Name</label>
           <input type="text" class="form-control" id="company_ticker" aria-describedby="company_ticker" name="company_ticker" placeholder="Enter company or ticker name" {% if request.GET.company_ticker %}value="{{ request.GET.company_ticker }}"{% endif %}>
         </div>
         <div class="form-group d-flex gap-4 align-items-baseline">
