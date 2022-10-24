@@ -55,7 +55,6 @@ en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_
 entrypoints==0.4
 et-xmlfile==1.1.0
 executing==0.8.2
-extract-emails==5.3.1
 feedparser==6.0.8
 filelock==3.4.0
 flake8==4.0.1
@@ -70,13 +69,6 @@ h11==0.12.0
 html5lib==1.1
 huepy==1.2.1
 idna==3.3
-imageio==2.13.5
-imageio-ffmpeg==0.4.5
-imap-tools==0.50.2
-importlib-metadata==4.10.0
-iniconfig==1.1.1
-instabot==0.117.0
-instagrapi==1.16.20
 ipykernel==6.9.0
 ipython==8.0.1
 ipython-genutils==0.2.0
@@ -87,16 +79,7 @@ jaraco.collections==3.4.0
 jaraco.functools==3.5.0
 jaraco.text==3.6.0
 jedi==0.18.1
-Jinja2==3.0.3
-JobFunnel @ git+https://github.com/PaulMcInnis/JobFunnel.git@245a359e784500b71b2d4eb31f5c682ae5bd060d
-joblib==1.1.0
 jsonschema==4.4.0
-jupyter-client==7.1.2
-jupyter-core==4.9.1
-jupyterlab-pygments==0.1.2
-jupyterlab-widgets==1.0.2
-keyword-text-analyser==0.1
-langcodes==3.3.0
 langdetect==1.0.9
 loguru==0.5.3
 lxml==4.7.1
@@ -187,10 +170,6 @@ smart-open==5.2.1
 sniffio==1.2.0
 sortedcontainers==2.4.0
 soupsieve==2.3.1
-spacy==3.2.1
-spacy-ke==0.1.4
-spacy-legacy==3.0.8
-spacy-loggers==1.0.1
 sqlparse==0.4.3
 srsly==2.4.2
 stack-data==0.1.4
