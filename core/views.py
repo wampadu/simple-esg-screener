@@ -54,7 +54,8 @@ def index(request):
     if rainforest_destruction != '':
         Stocks = Stocks.filter(rainforest_destruction=True).distinct()
     #for Stock in Stocks: Stock.violation_count = list(Stock.__dict__.values()).count(True)
-    for Stock in Stocks: Stock.violation_count = (Stock.animal_testing, Stock.nuclear_war, Stock.coal_power, Stock.rainforest_destruction ).count(True)
+    for Stock in Stocks: 
+        Stock.violation_count = (Stock.animal_testing, Stock.nuclear_war, Stock.coal_power, Stock.rainforest_destruction).count(True)
 
     paginator = Paginator(Stocks, 50)
     Stocks = paginator.get_page(page_number)
