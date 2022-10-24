@@ -59,5 +59,5 @@ def index(request):
     paginator = Paginator(Stocks, 50)
     Stocks = paginator.get_page(page_number)
     
-    return render(request, "index.html", {'Title': 'Home', 'Class': 'home', 'stocks': Stocks })
+    return render(request, "index.html", {'stocks': Stocks })
 

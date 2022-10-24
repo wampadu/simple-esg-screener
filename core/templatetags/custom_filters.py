@@ -1,7 +1,6 @@
 from django import template
 
 register = template.Library()
-print("hello", register)
 @register.filter
 def account_for_pagination(value, page):
     value, page = int(value), int(page)
