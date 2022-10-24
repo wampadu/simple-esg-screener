@@ -3,6 +3,9 @@ Simple ESG Screener
 
 A django simple ESG screener webapp
 
+## Demo
+Demo - https://simple-esg-screener.herokuapp.com/
+
 ## Running this project
 
 To get this project up and running start by having Python installed on your computer. It's advised you create a virtual environment to store your projects dependencies separately. You can install virtualenv with
