@@ -1,0 +1,13 @@
+<html lang="en">
+{% include 'partials/head.html' with title=Title %}
+<body class="bg-white">
+    {%  comment %} {% include 'partials/header.html' %}{%  endcomment %}
+    <div id="page-content">
+      <div class="container-fluid py-6 px-6">
+      {% block body %}
+      {% endblock %}
+    </div>
+    </div>
+  {% include 'partials/scripts.html' %}
+</body>
+</html>

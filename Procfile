@@ -1,0 +1,1 @@
+web gunicorn yourstake.wsgi:application --log-file

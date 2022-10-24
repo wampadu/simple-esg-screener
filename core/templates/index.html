@@ -1,0 +1,107 @@
+
+{% extends 'main.html' %}
+{% load custom_filters %}
+{% block body %}
+<div class="row mb-3 mt-3">
+    <h1>Simple ESG Screener</h1>
+</div> 
+<div class="row">
+<div class="col-12">
+    <form>
+        <div class="mb-3">
+          <label for="company_ticker" class="form-label">Company or Ticker</label>
+          <input type="text" class="form-control" id="company_ticker" aria-describedby="company_ticker" name="company_ticker" placeholder="Enter company or ticker name" {% if request.GET.company_ticker %}value="{{ request.GET.company_ticker }}"{% endif %}>
+        </div>
+        <div class="form-group d-flex gap-4 align-items-baseline">
+            <div class="form-group d-flex gap-4">
+                <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="animal_testing" name="animal_testing" {% if request.GET.animal_testing %}checked{% endif %}>
+                <label class="form-check-label" for="animal_testing">Animal Testing</label>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="nuclear_war" name="nuclear_war" {% if request.GET.nuclear_war %}checked{% endif %}>
+                    <label class="form-check-label" for="nuclear_war">Nuclear War</label>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="coal_power" name="coal_power" {% if request.GET.coal_power %}checked{% endif %}>
+                    <label class="form-check-label" for="coal_power">Coal Power</label>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rainforest_destruction" name="rainforest_destruction" {% if request.GET.rainforest_destruction %}checked{% endif %}>
+                    <label class="form-check-label" for="rainforest_destruction">Rainforest Destruction</label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+</div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Company</th>
+                <th scope="col">Ticker</th>
+                <th scope="col">Violations</th>
+                <th scope="col">No. of Violations</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for stock in stocks %}
+                <tr>
+                    <th>{{forloop.counter|account_for_pagination:stocks.number}}</th>
+                    
+                    <td>{{stock.company}}</td>
+                    <td>{{stock.ticker}}</td>
+                    <td class="text-nowrap">
+                        {% if stock.animal_testing %}<span class="badge rounded-pill text-bg-light me-1">Animal Testing</span>{% endif %}
+                        {% if stock.nuclear_war %}<span class="badge rounded-pill text-bg-light me-1">Nuclear War</span>{% endif %}
+                        {% if stock.coal_power %}<span class="badge rounded-pill text-bg-light me-1">Coal Power</span>{% endif %}
+                        {% if stock.rainforest_destruction %}<span class="badge rounded-pill text-bg-light me-1">Rainforest Destruction</span>{% endif %}
+                        {% if not stock.animal_testing and not stock.nuclear_war and not stock.coal_power and not stock.rainforest_destruction %}-{% endif %}
+                    </td>
+                    <td>{{stock.violation_count}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+
+<nav aria-label="pagination">
+    <ul class="pagination pagination-sm">
+    <li class="page-item">
+        {% if stocks.has_previous %}
+        <a class="page-link" href="?page=1">&laquo; first</a>
+        {% endif %}
+        </li>
+        <li class="page-item">
+            {% if stocks.has_previous %}
+            <a class="page-link" href="?page={{ stocks.previous_page_number }}">previous</a>
+            {% endif %}
+          </li>
+    <li class="page-item" aria-current="page">
+        <div class="page-link">Page {{ stocks.number }} of {{ stocks.paginator.num_pages }}</div>
+    </li>
+    <li class="page-item">
+        {% if stocks.has_next %}
+        <a class="page-link" href="?page={{ stocks.next_page_number }}">next</a>
+        {% endif %}
+      </li>
+      <li class="page-item" aria-current="page">
+        {% if stocks.has_previous %}
+        <a class="page-link" href="?page={{ stocks.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+
+{% endblock %}
