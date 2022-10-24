@@ -8,7 +8,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 
 def  import_csv(request):
-    path = os.path.dirname(__file__) + r'\csv\company_exclusions.csv'
+    path = os.path.dirname(__file__) + r'/csv/company_exclusions.csv'
     with open(path) as file:
         reader = csv.reader(file)
         next(reader) 
