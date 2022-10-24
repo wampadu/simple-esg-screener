@@ -4,6 +4,8 @@ django-admin==2.0.1
 django-excel-base==1.0.4
 django-excel-response2==3.0.2
 django-six==1.0.4
+django-heroku==0.3.1
+six==1.0.4
 jsonschema==4.4.0
 langdetect==1.0.9
 loguru==0.5.3
